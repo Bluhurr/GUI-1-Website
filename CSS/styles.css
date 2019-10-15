@@ -1,0 +1,140 @@
+/*
+
+Description of Assignment 4:
+    For assignment 4 I took my original website made for assignment 2
+and redesigned both the HTML and CSS for it to create a whole new design. I decided to get
+creative and base the design on phone messaging app designs, designing bubbles that resemble text
+messages. The website is responsive in some aspects, though could be better designed for mobile.
+The best way to imrpove it for mobile would be to change how the navbar looks on smaller screens,
+but I have not done that for this assignment.
+
+*/
+
+/* Change overall site to make it fit up to the edges */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Some basic styling for the body, and I decided to use flex display since it made it easiest
+to format how items fit on the page. I also only want a vertical scroll bar if any, so I
+hide any horizontal overflow of elements, though there shouldn't be any. */
+body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    overflow-x: hidden;
+}
+
+
+/* The navbar is located to the left, and contains all the links for future projects. Some links
+link to actual pages (for projects which are in a separate folder), but projects which have not
+been started simply redirect back to the home page with a placeholder link */
+.navbar{
+    padding: 10px 7px;
+    font-family: 'Carter One';
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(100,197,220);
+    box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.2);
+}
+
+.navbar ul{
+    list-style: none;
+    padding: 10px;
+}
+
+/* This styling created the "bubble" design for each link */
+.navbar li{
+    margin: 15px auto;
+    border-radius: 0 15px 15px 15px;
+    background-color: rgb(0,150,174);
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.2);
+    transition: all 0.2s;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.17);
+}
+
+/* The link for the home page is slightly different so this is the styling to change that */
+.navbar li:nth-child(1){
+    border-radius: 20px;
+}
+
+/* Styling for navbar links */
+.navbar a{
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+    font-size: calc(6px + 2vmin);    /* creates a min font size for the links, so that they don't get too small */
+}
+
+/* When hovering over a link, it will change color and change the box shadow slightly, with a transition */
+.navbar li:hover{
+    box-shadow: 3px 3px 1px rgb(0, 0, 0, 0.4);
+    background-color: rgb(25,106,125);
+}
+
+/* Possibly unneccesary but added just in case */
+.content-wrapper{
+    width: 100%;
+    padding: 20px;
+}
+
+/* Styling for every other bubble */
+.content-wrapper .bubble:nth-child(2n){                /* Dark Bubbles */
+    background-color: rgb(25,106,125);
+    margin-left: 3vw;
+    margin-right: auto;
+    border-radius: 0px 20px 20px 20px;
+    max-width: 600px;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
+    text-overflow: ellipsis;
+}
+
+/* Select first bubble, since first bubble is going to act as a header,
+and will be styled differently than the rest, but will still have the
+overall same style. */
+.content-wrapper .bubble:nth-child(1){                /* Header Bubble */
+    border-radius: 0px 20px 20px 20px;
+    margin-left: 0;
+    margin-top: 0;
+    max-width: 400px;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+/* Default/Basic Styling for a bubble in general */
+.bubble{                                              /* Default Bubble */
+    text-align: left;
+    font-size: calc(7px + 1.5vmin);
+    max-width: 700px;
+    background-color: rgb(100,197,220);
+    margin-top: 20px;
+    margin-right: 3vw;
+    margin-left: auto;
+    padding: 20px 20px;
+    color: white;
+    font-family: 'Carter One';
+    text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.35);
+    border-radius: 20px 0 20px 20px;
+}
+
+/* Images should appear a certain way when contained in a message bubble, so this changes that styling */
+.bubble img{
+    margin-left: auto;
+    max-width: 90%;
+    border-radius: 20px;
+    margin: 1.5vmin;
+    border: 5px solid white;
+}
+
+.bubble h2{
+    font-size: 3.5vmin;
+}
+
+.bubble h1{
+    font-size: 6vmin;
+}
